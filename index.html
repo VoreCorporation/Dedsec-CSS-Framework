@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Hack CSS Framework</title>
+		<!-- Import CSS Files -->
+		<link rel="stylesheet" href="css/prism.css">
+		<link rel="stylesheet" href="css/hack.css">
+		<!-- Import jQuery File -->
+		<script src="js/jquery.min.js"></script>
+	</head>
+	<body class="-hack" style="background: #eee;">
+		<div class="-container">
+			<nav class="-menu_bar -primary" id="MenuResponsive">
+				<a href="#" class="-brand_logo -add_code">Logo Here</a>
+				<ul class="-menu_list">
+					<li class="-active"><a href="#">Home</a></li>
+					<li><a href="#">About</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+				<ul class="-menu_list -right">
+					<li><a href="#">Menu1</a></li>
+					<li><a href="#">Menu2</a></li>
+				</ul>
+			</nav>
+		</div>
+		
+		<div class="-container">
+			<div class="-grid">
+				<div class="-cell -8of12">
+					<a href="#" class="-btn -primary -ghost -block">Test Aseloli</a>
+					<div class="-panel -primary">
+						<h3>Test Title</h3>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, quas ex vero enim in doloribus officiis ullam vel nam esse sapiente velit incidunt. Eaque quod et, aut maiores excepturi sint.
+					</div>
+					<div class="-grid">
+						<div class="-cell -6of12">
+							<div class='-navtabs'>
+								<div class='-navtabs_tabs'>
+									<div class='tab active'>Tab 1</div>
+									<div class='tab'>Tab 2</div>
+									<div class='tab'>Tab 3</div>
+									<div class='tab'>Tab 4</div>
+								</div>
+								<div class='-navtabs_panels'>
+									<div class='panel'>Panel 1</div>
+									<div class='panel'>Panel 2</div>
+									<div class='panel'>Panel 3</div>
+									<div class='panel'>Panel 4</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="-cell -4of12">
+					<div class="-card">
+					<header class="-card_header">Test Ajah</header>
+					<div class="-inner">
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita, quas ex vero enim in doloribus officiis ullam vel nam esse sapiente velit incidunt. Eaque quod et, aut maiores excepturi sint.
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script>
+	(function() {
+	    $(function() {
+	        var toggle;
+	        return toggle = new Toggle('.-navtabs');
+	    });
+	    this.Toggle = function() {
+	        Toggle.prototype.el = null;
+	        Toggle.prototype.tabs = null;
+	        Toggle.prototype.panels = null;
+
+	        function Toggle(toggleClass) {
+	            this.el = $(toggleClass);
+	            this.tabs = this.el.find('.tab');
+	            this.panels = this.el.find('.panel');
+	            this.bind();
+	        }
+	        Toggle.prototype.show = function(index) {
+	            var activePanel, activeTab;
+	            this.tabs.removeClass('active');
+	            activeTab = this.tabs.get(index);
+	            $(activeTab).addClass('active');
+	            this.panels.hide();
+	            activePanel = this.panels.get(index);
+	            return $(activePanel).show();
+	        };
+	        Toggle.prototype.bind = function() {
+	            return this.tabs.unbind('click').bind('click', function(_this) {
+	                return function(e) {
+	                    return _this.show($(e.currentTarget).index());
+	                };
+	            }(this));
+	        };
+	        return Toggle;
+	    }();
+	}.call(this));
+	</script>
+	<!-- Import Javascript Files -->
+	<script src="js/app.js"></script>
+	<script src="js/prism.js"></script>
+</body>
+</html>
